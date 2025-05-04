@@ -1,0 +1,111 @@
+LISTS : 
+QUESTION -1: 
+Problem statement : 
+Write a program to take the N inputs from the user and store them in a list. Replace the list such that it contains the following: 
+• The elements in the odd index should be square of the elements. • The elements in the even index should be cubes of the elements. • The element in the zeroth index should be replaced with zero. Code: 
+n = int(input()) 
+olist = [] 
+nlist = [] 
+for i in range (n): 
+ a = int(input()) 
+ olist.append(a) 
+olist = sorted(olist) 
+for i in range (n): 
+ if i == 0: 
+ nlist.append(0) 
+ elif i%2 != 0: 
+ nlist.append((olist[i])**2) 
+ else: 
+ nlist.append((olist[i])**3) 
+print("Original List:",olist) 
+print("Replaced List:",nlist)
+  
+Question No: 2 
+Problem Statement 
+Meenu is a diligent programmer who loves to work on tasks related to list  manipulation. Today, she's tasked with a problem that involves determining  whether a given list contains unique elements or if there are duplicates present.  
+Meenu needs to develop a program that checks whether all elements in a given  list are unique or if there are duplicates present. 
+Code: 
+s= input() 
+lst = s.split() 
+s1 = set(lst) 
+nlst=[] 
+for i in lst: 
+ nlst.append(int(i)) 
+print("List:",nlst) 
+if len(lst)==len(s1): 
+ print("All elements are unique") 
+else: 
+ print("List contains duplicate elements") 
+Question No: 3 
+Problem Statement: 
+Agent Smith has a list of temperatures in Celsius, and he needs to  convert them to Fahrenheit while rounding each temperature to the  nearest whole number. The goal is to create a new list with the  converted and rounded to nearest temperatures.
+  
+Agent Smith decides to use list comprehension along with the  round() function to accomplish this task efficiently. 
+Your task is to help Agent Smith by writing him a python program for  his requirements using the round() built-in function. 
+Formula: F=( 9/5 ×C)+32 
+Code: 
+clst = [] 
+while True: 
+ temp= input() 
+ if temp == "": 
+ break 
+ else: 
+ clst.append(float(temp)) 
+ flst =[round(((9/5)*i)+32)for i in clst] 
+print(flst) 
+Question No: 4 
+Problem Statement 
+Alex is working on a Python program to manage a list of elements. He  needs to append multiple elements to the list and then remove an  element from the list at a specified index. 
+Your task is to create a program that helps Alex manage the list. The  program should allow Alex to input a list of elements, append them  to the existing list, and then remove an element at a specified index. 
+Code: 
+lst = []
+  
+n = int(input()) 
+for i in range (0,n): 
+ lst.append(int(input())) 
+print("List after appending elements:",lst) 
+index = int(input()) 
+a= lst.pop(index) 
+print("List after popping last element:",lst) 
+print("popped element:",a) 
+Question No: 5 
+Problem Statement 
+Mia is organizing a series of competitions where participants need to  demonstrate their skills in increasing sequences. To ensure fairness,  she decides to find the longest strictly increasing subsequence in the  scores of participants recorded during the final round. Given a list of  scores, help Mia determine the length of the longest increasing  subsequence to reward the top performers. 
+Help Mia to complete the task.  
+Code: 
+n = int(input().strip()) 
+lst = list(map(int, input().strip().split())) 
+longest_subseq = [ ] 
+current_subseq = [ ] 
+for i in range(n): 
+ if not current_subseq or lst[i] > current_subseq[-1]:
+  
+ current_subseq.append(lst[i]) 
+ else: 
+ if len(current_subseq) > len(longest_subseq): 
+ longest_subseq = current_subseq 
+ current_subseq = [lst[i]] 
+if len(current_subseq) > len(longest_subseq): 
+ longest_subseq = current_subseq 
+print(len(longest_subseq)) 
+Question No: 6 
+Problem Statement  
+Henry is a data scientist who often works with lists of integers to find  patterns. Today, he's interested in determining the compatibility of  pairs of numbers from a list based on a specific criterion.  
+Henry needs to identify all pairs of numbers from a given list where  the sum is divisible by 3 using list comprehension. This will help him  in clustering algorithms for a project on data categorization. 
+CODE: 
+input_list = input().split() 
+numbers = [] 
+for num in input_list: 
+ if num.isdigit(): 
+ numbers.append(int(num))
+  
+ else: 
+ print("Invalid input") 
+ exit() 
+pairs = [(numbers[i], numbers[j]) for i in range(len(numbers)) for j in  range(i + 1, len(numbers)) if (numbers[i] + numbers[j]) % 3 == 0] 
+if len(pairs) > 0: 
+ print("Pairs with a sum divisible by 3:") 
+ for pair in pairs: 
+ print(pair) 
+else: 
+ print("No pairs found with a sum divisible by 3") 
