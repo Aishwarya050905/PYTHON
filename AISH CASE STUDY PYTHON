@@ -1,0 +1,121 @@
+                    #ORGAN TRANSPLANT MATCHING SYSTEM
+
+# Function to add donor details
+def add_donor(donors):
+    name = input("Enter Donor Name: ")
+    blood_group = input("Enter Donor Blood Group: ")
+    organ = input("Enter Organ Available for Donation: ")
+    donors.append({'Name': name, 'Blood Group': blood_group, 'Organ': organ})
+    print("Donor Added Successfully!\n")
+		
+		
+# Function to search for matching donor
+def search_donor(donors):
+    patient_blood_group = input("Enter Patient's Blood Group: ")
+    required_organ = input("Enter Organ Required: ")
+    found = False
+    print("\nMatching Donors:")
+    for donor in donors:
+        if donor['Blood Group'] == patient_blood_group and donor['Organ'].lower() == required_organ.lower():
+            print(f"Name: {donor['Name']}, Blood Group: {donor['Blood Group']}, Organ: {donor['Organ']}")
+            found = True
+
+    if not found:
+        print("No matching donor found.\n")
+
+
+# Main Program
+donors = []
+while True:
+    print("\nOrgan Transplant Matching System")
+    print("1. Add Donor")
+    print("2. Search Donor")
+    print("3. Exit")
+
+    choice = int(input("Enter Your Choice: "))
+
+    if choice == 1:
+        add_donor(donors)
+    elif choice == 2:
+        search_donor(donors)
+    elif choice == 3:
+        print("Exiting Program...")
+        break
+    else:
+        print("Invalid Choice! Please Try Again.")
+
+
+
+
+
+                 SAMPLE OUTPUT
+Organ Transplant Matching System
+1. Add Donor
+2. Search Donor
+3. Exit
+Enter Your Choice: 1
+
+Enter Donor Name: Ramesh
+Enter Donor Blood Group: A+
+Enter Organ Available for Donation: Kidney
+Donor Added Successfully!
+
+
+Organ Transplant Matching System
+1. Add Donor
+2. Search Donor
+3. Exit
+Enter Your Choice: 1
+
+Enter Donor Name: Priya
+Enter Donor Blood Group: B+
+Enter Organ Available for Donation: Liver
+Donor Added Successfully!
+
+
+Organ Transplant Matching System
+1. Add Donor
+2. Search Donor
+3. Exit
+Enter Your Choice: 2
+
+Enter Patient's Blood Group: A+
+Enter Organ Required: Kidney
+
+Matching Donors:
+Name: Ramesh, Blood Group: A+, Organ: Kidney
+
+Organ Transplant Matching System
+1. Add Donor
+2. Search Donor
+3. Exit
+Enter Your Choice: 2
+
+Enter Patient's Blood Group: O+
+Enter Organ Required: Heart
+
+No matching donor found.
+
+Organ Transplant Matching System
+1. Add Donor
+2. Search Donor
+3. Exit
+Enter Your Choice: 3
+
+Exiting Program...
+
+In this example:
+
+2 donors were added:
+•	Ramesh (A+, Kidney)
+•	Priya (B+, Liver)
+
+1st Search:
+•	Patient Blood Group: A+
+•	Required Organ: Kidney
+•	Output: Ramesh found.
+
+2nd Search:
+•	Patient Blood Group: O+
+•	Required Organ: Heart
+•	Output: No matching donor
