@@ -1,0 +1,488 @@
+Question No: 1
+Single File Programming Question
+Problem Statement
+
+
+
+Gabriel is working on a wildlife research project where he needs to compute various metrics for different animals based on their characteristics. Each animal type requires a different calculation: a deer’s distance traveled, a bear’s weight based on footprint size, or a bird’s altitude based on its flying pattern. 
+
+
+
+Conditions:
+
+For Deer (Mode 'D' or 'd'): Distance = speed of sound * time taken, where the speed of sound in air is 343 meters per second.
+For Bear (Mode 'B' or 'b'): Weight = footprint size * average weight, where the average weight per square inch for a bear is 5.0 pounds.
+For Bird (Mode 'F' or 'f'): Altitude = flying pattern * distance covered (in meters).
+
+
+Write a program to help Gabriel analyze the characteristics of animals based on the given inputs.
+
+Input format :
+The first line of input consists of a character, representing the type of animal 'D/d' for deer, 'B/b' for bear, and 'F/f' for bird.
+
+If the choice is 'D' or 'd':
+
+The second line of input consists of a floating-point value T, representing the time taken from the deer's location to the observer.
+
+If the choice is 'B' or 'b':
+
+The second line of input consists of a floating-point value S, representing the size of the bear's footprint in square inches.
+
+If the choice is 'F' or 'f':
+
+The second line of input consists of a floating-point value P, representing the bird's flying pattern.
+The third line consists of a floating-point value D, representing the distance covered by the bird in meters.
+Output format :
+The output prints one of the following:
+
+If the choice is 'D' or 'd':
+
+The output prints "Distance: X m" where X is a floating point value rounded off to two decimal places, representing the calculated distance traveled by the sound wave in meters.
+
+If the choice is 'B' or 'b':
+
+The output prints "Weight: Y lb" where Y is a floating point value rounded off to two decimal places, representing the estimated weight of the bear in pounds.
+
+If the choice is 'F' or 'f':
+
+The output prints "Altitude: Z m" where Z is a floating point value rounded off to two decimal places, representing the calculated altitude of the bird's flight in meters.
+
+If the given choice is invalid, print "Invalid".
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+In this scenario, the test cases fall under the following constraints:
+
+1.0 ≤ T ≤ 10.0
+
+1.0 ≤ S ≤ 5.0
+
+1.0 ≤ P ≤ 50.0
+
+1.0 ≤ D ≤ 50.0
+
+Sample test cases :
+Input 1 :
+d
+2.5
+Output 1 :
+Distance: 857.50 m
+Input 2 :
+B
+4.5
+Output 2 :
+Weight: 22.50 lb
+Input 3 :
+F
+10.0
+15.0
+Output 3 :
+Altitude: 150.00 m
+Input 4 :
+G
+Output 4 :
+Invalid
+
+CODE:
+
+animal = input().strip()  # Read animal type as a single character
+distance = 0.0
+time_taken = 0.0
+footprint_size = 0.0
+weight = 0.0
+flying_pattern = 0.0
+altitude = 0.0
+
+# Process based on animal type
+while True:
+    if animal == 'D' or animal == 'd':  # Deer
+        time_taken = float(input())
+        distance = 343 * time_taken  # Speed of sound in air is 343 meters per second
+        print(f"Distance: {distance:.2f} m")
+        break
+    elif animal == 'B' or animal == 'b':  # Bear
+        footprint_size = float(input())
+        weight = footprint_size * 5.0  # Average weight per square inch for a bear
+        print(f"Weight: {weight:.2f} lb")
+        break
+    elif animal == 'F' or animal == 'f':  # Bird
+        flying_pattern = float(input())
+        distance = float(input())
+        altitude = flying_pattern * distance  # Altitude = speed * distance
+        print(f"Altitude: {altitude:.2f} m")
+        break
+    else:
+        print("Invalid")
+        break
+
+Question No: 2
+Single File Programming Question
+Problem Statement
+
+
+
+Mandy, the HR manager, has implemented a new system to automate the calculation of employee bonuses and taxes based on tenure. Employees with more than 5 years of service receive a bonus, which is a percentage of their annual salary. He also calculates the tax on the total income, which includes the salary and bonus, and finally, he computes the net salary after tax.
+
+
+
+Formula:
+
+net bonus = (bonus percentage / 100) * Salary
+
+tax amount = (tax percentage / 100) * (salary + net bonus)
+
+net salary = salary + net bonus - tax amount
+
+Input format :
+The first line of input consists of a float S, representing the annual salary of the employee.
+
+The second line consists of an integer N, representing the number of years the employee has been with the company.
+
+The third line consists of a float B, representing the bonus percentage.
+
+The fourth line consists of a float T, representing the tax percentage.
+
+Output format :
+The first line of output displays "You have earned a bonus of X units." if eligible, otherwise "Sorry, you are not eligible for a bonus." where X is the bonus amount rounded to two decimal places.
+
+The second line displays "Tax Amount: Y units", where Y is the tax amount.
+
+The third line displays "Net Salary: Z units", where Z is the net salary after tax.
+
+
+
+Refer to the sample output for the formatting specifications.
+
+Code constraints :
+1.0 ≤ salary ≤ 105
+
+1 ≤ year ≤ 10
+
+1.0 ≤ bonus ≤ 20.0
+
+1.0 ≤ tax percentage ≤ 30.0
+
+Sample test cases :
+Input 1 :
+50000.00
+6
+10.00
+15.00
+Output 1 :
+You have earned a bonus of 5000.0 units.
+Tax Amount: 8250.0 units
+Net Salary: 46750.0 units
+Input 2 :
+30000.00
+3
+8.00
+12.00
+Output 2 :
+Sorry, you are not eligible for a bonus.
+Tax Amount: 3600.0 units
+Net Salary: 26400.0 units
+
+
+CODE:
+salary = float(input())
+years_of_service = int(input())
+bonus_percentage = float(input())
+tax_percentage = float(input())
+
+net_bonus = 0
+
+if years_of_service > 5:
+    net_bonus = (bonus_percentage / 100) * salary
+    print("You have earned a bonus of", net_bonus, "units.")
+else:
+    print("Sorry, you are not eligible for a bonus.")
+
+tax_amount = (tax_percentage / 100) * (salary + net_bonus)
+net_salary = salary + net_bonus - tax_amount
+
+print("Tax Amount:", tax_amount, "units")
+print("Net Salary:", net_salary, "units")
+
+Question No: 3
+Single File Programming Question
+Problem Statement
+
+
+
+Emma, a mathematics enthusiast, is exploring a range of numbers and wants to count how many of them are not Fibonacci numbers.
+
+
+
+Help Emma determine the count of non-Fibonacci numbers within the given range [start, end] using the continue statement.
+
+Input format :
+The first line of input consists of an integer, representing the starting number of the range.
+
+The second line consists of an integer, representing the ending number of the range.
+
+Output format :
+The output prints a single integer, representing the count of numbers in the range that are not Fibonacci numbers.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1 ≤ start ≤ end ≤ 100
+
+Sample test cases :
+Input 1 :
+1
+10
+Output 1 :
+5
+Input 2 :
+21
+30
+Output 2 :
+9
+
+CODE:
+start = int(input())
+end = int(input())
+count = 0
+for num in range(start, end + 1):
+    x = 5 * num * num + 4
+    y = 5 * num * num - 4
+    s1 = int(x**0.5)
+    s2 = int(y**0.5)
+    if s1 * s1 == x or s2 * s2 == y:  # Fibonacci check
+        continue  
+    count += 1  
+print(count)
+
+Question No: 4
+Single File Programming Question
+Problem Statement
+
+
+
+Ethan, a curious mathematician, is fascinated by perfect numbers. A perfect number is a number that equals the sum of its proper divisors (excluding itself). Ethan wants to identify all perfect numbers within a given range. 
+
+
+
+Help him write a program to list these numbers.
+
+Input format :
+The first line of input consists of an integer start, representing the starting number of the range.
+
+The second line consists of an integer end, representing the ending number of the range.
+
+Output format :
+The output prints all perfect numbers in the range, separated by a space.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1 ≤ start ≤ 100
+
+1 ≤ end ≤ 100
+
+Sample test cases :
+Input 1 :
+1
+100
+Output 1 :
+6 28 
+Input 2 :
+10
+30
+Output 2 :
+28 
+
+CODE:
+start = int(input())
+end = int(input())
+for num in range(start, end + 1):
+    sum_of_divisors = 0
+    for i in range(1, num):
+        if num % i == 0:  
+            sum_of_divisors += i
+    if sum_of_divisors == num:
+        print(num, end=" ")
+    else:
+        pass  
+
+Question No: 5
+Single File Programming Question
+Problem Statement
+
+
+
+Alex is practicing programming and is curious about prime and non-prime digits. He wants to write a program that calculates the sum of the non-prime digits in a given integer using loops.
+
+
+
+Help Alex to complete his task.
+
+
+
+Example:
+
+Input:
+
+845
+
+
+
+output:
+
+12
+
+
+
+Explanation:
+
+Digits: 8 (non-prime), 4 (non-prime), 5 (prime)
+
+The sum of Non-Prime Digits: 8 + 4 = 12
+
+Output: 12
+
+Input format :
+The input consists of a single integer X.
+
+Output format :
+The output prints an integer representing the sum of non-prime digits in X.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+10 ≤ X ≤ 106
+
+Sample test cases :
+Input 1 :
+845
+Output 1 :
+12
+Input 2 :
+5786
+Output 2 :
+14
+Input 3 :
+123
+Output 3 :
+1
+
+CODE:
+number = int(input())
+
+sum_non_prime_digits = 0
+absolute_number = abs(number)
+
+while absolute_number > 0:
+    digit = absolute_number % 10
+    is_prime = True
+    
+    if digit <= 1:
+        is_prime = False
+    else:
+        for i in range(2, int(digit**0.5) + 1):
+            if digit % i == 0:
+                is_prime = False
+                break
+    
+    if not is_prime:
+        sum_non_prime_digits += digit
+    
+    absolute_number //= 10
+
+print(sum_non_prime_digits)
+
+Question No: 6
+Single File Programming Question
+Problem Statement
+
+
+
+Janani is studying coordinate geometry, and she is curious about the quadrants in a coordinate plane. She wants to create a program that takes two integer inputs representing the coordinates of a point and determines in which quadrant the point lies.
+
+
+
+Help her by writing a program to solve this problem.
+
+
+
+Conditions
+
+If both x and y are positive, the point lies in the first quadrant.
+If x is negative and y is positive, the point lies in the second quadrant.
+If both x and y are negative, the point lies in the third quadrant.
+If x is positive and y is negative, the point lies in the fourth quadrant.
+If both x and y are zero, the point is at the origin.
+Input format :
+The first line of input consists of an integer x, representing the point.
+
+The second line of input consists of an integer y, representing the point.
+
+Output format :
+The output displays the quadrant in which the point lies or whether it lies at the origin.
+
+
+
+If the point lies in:
+
+First quadrant: prints "The coordinate point lies in the first quadrant."
+Second quadrant: prints "The coordinate point lies in the second quadrant."
+Third quadrant: prints "The coordinate point lies in the third quadrant."
+Fourth quadrant: prints "The coordinate point lies in the fourth quadrant."
+Origin: prints "The coordinate point lies at the origin."
+
+
+Refer to the sample output for the formatting specifications.
+
+Code constraints :
+-100 ≤ x, y ≤ 100
+
+Sample test cases :
+Input 1 :
+1
+2
+Output 1 :
+The coordinate point lies in the first quadrant.
+Input 2 :
+-70
+40
+Output 2 :
+The coordinate point lies in the second quadrant.
+Input 3 :
+-4 
+-8
+Output 3 :
+The coordinate point lies in the third quadrant.
+Input 4 :
+90
+-80
+Output 4 :
+The coordinate point lies in the fourth quadrant.
+Input 5 :
+0
+0
+Output 5 :
+The coordinate point lies at the origin.
+
+CODE:
+co1 = int(input())
+co2 = int(input())
+if( co1 > 0 and co2 > 0):
+    print("The coordinate point lies in the first quadrant.")
+elif( co1 < 0 and co2 > 0):
+    print("The coordinate point lies in the second quadrant.")
+elif( co1 < 0 and co2 < 0):
+    print("The coordinate point lies in the third quadrant.")
+elif( co1 > 0 and co2 < 0):
+    print("The coordinate point lies in the fourth quadrant.")
+elif( co1 == 0 and co2 == 0):
+    print("The coordinate point lies at the origin.")
