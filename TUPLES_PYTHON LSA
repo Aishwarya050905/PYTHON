@@ -1,0 +1,110 @@
+TUPLES : 
+QUESTION -1 
+Problem Statement 
+Riya is organizing a gaming tournament and needs to rank the players based on  their scores and levels. Each player is identified by an ID, has a score, and  belongs to a specific level. The players should be sorted first by their scores in  descending order, and if scores are equal, then by their levels in ascending  order.  
+CODE : 
+num_players = int(input()) 
+players = [] 
+for _ in range(num_players): 
+ player_id, score, level = map(int, input().split()) 
+ players.append((player_id, score, level)) 
+  
+for i in range(num_players): 
+ for j in range(num_players -1): 
+ id1, score1, level1 = players[j] 
+ id2, score2, level2 = players[j + 1] 
+  
+ if (score1 < score2) or (score1 == score2 and level1 > level2):  players[j], players[j + 1] = players[j + 1], players[j] 
+for player in players: 
+ print(player)
+  
+  
+QUESTION -2: 
+Problem Statement 
+
+
+
+
+
+Professor Adams needs to analyze student participation in three recent  academic workshops. She has three sets of student IDs: the first set contains  students who registered for the workshops, the second set contains students  who actually attended, and the third set contains students who dropped out.  
+Professor Adams needs to determine which students who registered also  attended, and then identify which of these students did not drop out. 
+CODE: 
+set1 = set(map(int, input().split())) 
+set2 = set(map(int, input().split())) 
+set3 = set(map(int, input().split())) 
+intersection = set1 & set2 
+filtered_result = intersection - set3 
+print(intersection) 
+print(filtered_result) 
+QUESTION -3: 
+Problem Statement
+  
+Mia is organizing a list of integers into a series of pairs for his new project. She  wants to create pairs of consecutive integers from the list. The last integer  should be paired with None to complete the series. The pairing happens as  follows: ((Element 1, Element 2), (Element 2, Element 3)........(Element n,  None)). 
+Your task is to help Henry by writing a Python program that reads a list of  integers, forms these pairs, and displays the result in tuple format. 
+CODE: 
+n = int(input()) 
+input_tuple = tuple(map(int,input().split())) 
+result = () 
+for i in range(n): 
+ if i == n - 1: 
+ result += ((input_tuple[i], None),) 
+ else: 
+ result += ((input_tuple[i], input_tuple[i+1]),) 
+  
+print(result)
+  
+QUESTION -4 
+Problem Statement 
+Alex is tasked with managing the membership lists of several exclusive clubs.  Each club has its own list of members, and Alex needs to determine the unique  members who are part of exactly one club when considering all clubs together. 
+Your goal is to help Alex by writing a program that calculates the symmetric  difference of membership lists from multiple clubs and then finds the total  number of unique members. 
+CODE : 
+k = int(input()) 
+sets = [set(map(int, input().split())) for _ in range(k)] 
+symmetric_diff = sets[0] 
+for s in sets[1:]: 
+ symmetric_diff ^= s 
+ sum_of_diff = sum(symmetric_diff) 
+print(symmetric_diff) 
+print(sum_of_diff)
+  
+QUESTION -6: 
+Problem Statement 
+James is managing a list of inventory items in a warehouse. Each item is  recorded as a tuple, where the first element is the item ID and the second  element is a list of quantities available for that item. James needs to filter out  all quantities that are above a certain threshold to find items that have a stock  level above this limit.  
+Help James by writing a program to process these tuples, filter the quantities  from all the available items, and display the results. 
+CODE: 
+n = int(input()) 
+values = [] 
+for _ in range(n): 
+ input_str = input().strip() 
+ input_str = input_str.strip('()') 
+ parts = input_str.split(',[',1) 
+  
+ list_part = parts[1].strip('[]') 
+  
+ if list_part: 
+ current_values = [int(x) for x in list_part.split(',')] 
+  
+ else: 
+ current_values = [] 
+ values.extend(current_values()) 
+threshold = int(input())
+  
+filtered_values = [value for value in value if value > threshold] print("filtered_values") 
+QUESTION -5 
+Problem Statement 
+William is organizing a trivia contest where each contestant submits a series of  numbers. He wants to identify the number that appears most frequently  among the submitted numbers.  
+If there are ties, he prefers the smallest number among those with the highest  frequency. Your task is to write a program to help Michael find this number and  its frequency. 
+CODE: 
+size = int(input()) 
+elements = tuple(int(input()) for _ in range(size)) 
+max_freq = 0 
+most_frequent_element = None 
+for i in elements: 
+ freq = 0 
+ for elem in elements: 
+ if elem == i: 
+ freq += 1  
+ if freq > max_freq or (freq == max_freq and i< most_frequent_element):  max_freq = freq
+  
+ most_frequent_element = i   
+print(most_frequent_element, max_freq)
