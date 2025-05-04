@@ -1,0 +1,216 @@
+FUNCTIONS: 
+QUESTION -1: 
+Problem Statement 
+Implement a program to convert time input provided in hours, minutes, and  seconds into a decimal representation.  
+The program should allow the user to enter a time in the format HH:MM:SS,  where HH represents hours, MM represents minutes, and SS represents  seconds. The program should then convert this input into a decimal  representation. 
+Code: 
+def convert_time(): 
+ time=input().strip() 
+ hh,mm,ss = map(int,time.split(':')) 
+ minutes = mm + round(ss/60,2) 
+ seconds = float(ss) 
+ print("{} hours, {} minutes,and {} seconds in decimal  
+representation.".format(hh,minutes,seconds))  
+convert_time() 
+Question No: 2 
+Problem Statement 
+Implement a function that counts the number of vowels in a given input string.  The vowels, which include both lowercase and uppercase vowels (a, e, i, o, u, A,  E, I, O, U), are stored in a global variable called VOWELS. 
+The function should use local variables for counting the vowels and return the  count as the output.
+  
+Code: 
+def count_vowels(n): 
+ vowels = 0 
+ for i in n: 
+ if i in "aeiouAEIOU": 
+ vowels+=1 
+ return vowels 
+n = input() 
+print("Number of vowels in the string:",count_vowels(n)) 
+Question 3: 
+Problem Statement 
+In a local school, the teacher is organizing a number game for kids where each  child is asked to call out all odd numbers from 1 up to a given number N. The  teacher needs a program that can assist in generating this list of odd numbers  to quickly verify the children's answers. 
+The program should take a positive integer n and return a list of odd numbers  from 1 to N (inclusive, if N is odd). The list should be printed in a single line,  with odd numbers separated by commas. 
+Code: 
+def odd_numbers(n): 
+ for i in range(1,n+1): 
+ if i%2 != 0: 
+ if i==n or i==n-1: 
+ print(i) 
+ else: 
+ print(i,end=" ,") 
+ 
+  
+n = int(input()) 
+odd_numbers(n) 
+Question No: 4 
+Problem Statement 
+Sophia is developing a feature for her online banking application that calculates  the total sum of digits in customers' account numbers. This sum is used to  generate unique verification codes for secure transactions. She needs a  program that takes an account number as input and outputs the sum of its  digits. 
+Help Sophia to complete her task. 
+Code: 
+# You are using Python 
+def sum_ofdigits(n): 
+ sum = 0 
+ for i in n: 
+ sum = sum+int(i) 
+ return sum 
+n = input() 
+print(sum_ofdigits(n)) 
+Question No: 5 
+Problem Statement 
+Hussain wants to create a program to calculate a person's BMI (Body Mass  Index) based on their weight in kilograms and height in meters. The BMI is a  measure of a person's body fat relative to their height. 
+Your program should take user input for weight and height, calculate the BMI,  and display the result. 
+Function Signature: calculate_bmi(weight, height) 
+Formula: BMI = Weight/(Height)2 
+  
+Code: 
+def calculate_bmi(weight,height): 
+ bmi = weight/(height*height) 
+ bmii= round(bmi,2) 
+ return bmii 
+weight = float(input()) 
+height = float(input()) 
+print("Your BMI is:",calculate_bmi(weight,height)) 
+Question No: 6 
+Problem Statement 
+Imagine you are tasked with creating a function to calculate a student's final  grade based on their exam score and coursework score. The grade should be  determined using the following grade boundaries: 
+A_GRADE: 90 or higher 
+B_GRADE: 80 or higher 
+C_GRADE: 70 or higher 
+D_GRADE: 60 or higher 
+F_GRADE: Below 60 
+The student's final grade should include a '+' if the coursework score is greater  than 0 and a '-' if it's 0 or less. The grade should be a combination of the letter  grade and the '+' or '-' sign. 
+CODE: 
+def final_grade(exam_score,coursework_score): 
+ if exam_score>=90: 
+ grade = "A" 
+ elif exam_score>=80:
+  
+ grade = "B" 
+ elif exam_score>=70: 
+ grade = "C" 
+ elif exam_score>=60: 
+ grade = "D" 
+ elif exam_score<60: 
+ grade = "F" 
+  
+ if coursework_score >0: 
+ grade += "+" 
+ else: 
+ grade += "-" 
+ return grade 
+exam_score=float(input()) 
+coursework_score=float(input()) 
+print("Final Grade:",final_grade(exam_score,coursework_score))
+  
+TUPLES : 
+QUESTION -1 
+Problem Statement 
+Riya is organizing a gaming tournament and needs to rank the players based on  their scores and levels. Each player is identified by an ID, has a score, and  belongs to a specific level. The players should be sorted first by their scores in  descending order, and if scores are equal, then by their levels in ascending  order.  
+CODE : 
+num_players = int(input()) 
+players = [] 
+for _ in range(num_players): 
+ player_id, score, level = map(int, input().split()) 
+ players.append((player_id, score, level)) 
+  
+for i in range(num_players): 
+ for j in range(num_players -1): 
+ id1, score1, level1 = players[j] 
+ id2, score2, level2 = players[j + 1] 
+  
+ if (score1 < score2) or (score1 == score2 and level1 > level2):  players[j], players[j + 1] = players[j + 1], players[j] 
+for player in players: 
+ print(player)
+  
+  
+QUESTION -2: 
+Problem Statement 
+
+
+
+
+
+Professor Adams needs to analyze student participation in three recent  academic workshops. She has three sets of student IDs: the first set contains  students who registered for the workshops, the second set contains students  who actually attended, and the third set contains students who dropped out.  
+Professor Adams needs to determine which students who registered also  attended, and then identify which of these students did not drop out. 
+CODE: 
+set1 = set(map(int, input().split())) 
+set2 = set(map(int, input().split())) 
+set3 = set(map(int, input().split())) 
+intersection = set1 & set2 
+filtered_result = intersection - set3 
+print(intersection) 
+print(filtered_result) 
+QUESTION -3: 
+Problem Statement
+  
+Mia is organizing a list of integers into a series of pairs for his new project. She  wants to create pairs of consecutive integers from the list. The last integer  should be paired with None to complete the series. The pairing happens as  follows: ((Element 1, Element 2), (Element 2, Element 3)........(Element n,  None)). 
+Your task is to help Henry by writing a Python program that reads a list of  integers, forms these pairs, and displays the result in tuple format. 
+CODE: 
+n = int(input()) 
+input_tuple = tuple(map(int,input().split())) 
+result = () 
+for i in range(n): 
+ if i == n - 1: 
+ result += ((input_tuple[i], None),) 
+ else: 
+ result += ((input_tuple[i], input_tuple[i+1]),) 
+  
+print(result)
+  
+QUESTION -4 
+Problem Statement 
+Alex is tasked with managing the membership lists of several exclusive clubs.  Each club has its own list of members, and Alex needs to determine the unique  members who are part of exactly one club when considering all clubs together. 
+Your goal is to help Alex by writing a program that calculates the symmetric  difference of membership lists from multiple clubs and then finds the total  number of unique members. 
+CODE : 
+k = int(input()) 
+sets = [set(map(int, input().split())) for _ in range(k)] 
+symmetric_diff = sets[0] 
+for s in sets[1:]: 
+ symmetric_diff ^= s 
+ sum_of_diff = sum(symmetric_diff) 
+print(symmetric_diff) 
+print(sum_of_diff)
+  
+QUESTION -6: 
+Problem Statement 
+James is managing a list of inventory items in a warehouse. Each item is  recorded as a tuple, where the first element is the item ID and the second  element is a list of quantities available for that item. James needs to filter out  all quantities that are above a certain threshold to find items that have a stock  level above this limit.  
+Help James by writing a program to process these tuples, filter the quantities  from all the available items, and display the results. 
+CODE: 
+n = int(input()) 
+values = [] 
+for _ in range(n): 
+ input_str = input().strip() 
+ input_str = input_str.strip('()') 
+ parts = input_str.split(',[',1) 
+  
+ list_part = parts[1].strip('[]') 
+  
+ if list_part: 
+ current_values = [int(x) for x in list_part.split(',')] 
+  
+ else: 
+ current_values = [] 
+ values.extend(current_values()) 
+threshold = int(input())
+  
+filtered_values = [value for value in value if value > threshold] print("filtered_values") 
+QUESTION -5 
+Problem Statement 
+William is organizing a trivia contest where each contestant submits a series of  numbers. He wants to identify the number that appears most frequently  among the submitted numbers.  
+If there are ties, he prefers the smallest number among those with the highest  frequency. Your task is to write a program to help Michael find this number and  its frequency. 
+CODE: 
+size = int(input()) 
+elements = tuple(int(input()) for _ in range(size)) 
+max_freq = 0 
+most_frequent_element = None 
+for i in elements: 
+ freq = 0 
+ for elem in elements: 
+ if elem == i: 
+ freq += 1  
+ if freq > max_freq or (freq == max_freq and i< most_frequent_element):  max_freq = freq
+  
+ most_frequent_element = i   
+print(most_frequent_element, max_freq)
+  
+
